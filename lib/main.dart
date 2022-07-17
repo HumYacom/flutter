@@ -29,13 +29,13 @@ class Main2 extends StatefulWidget {
 class _Main2State extends State<Main2> {
   int Number = 0;
 
-  void inc() {
+  void add() {
     setState(() {
       Number++;
     });
   }
 
-  void dec() {
+  void remove() {
     setState(() {
       Number--;
     });
@@ -66,7 +66,7 @@ class _Main2State extends State<Main2> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
-            onPressed: dec,
+            onPressed: remove,
             tooltip: "-",
             child: Icon(Icons.remove),
           ),
@@ -74,7 +74,7 @@ class _Main2State extends State<Main2> {
             width: 28,
           ),
           FloatingActionButton(
-            onPressed: inc,
+            onPressed: add,
             tooltip: "+",
             child: Icon(Icons.add),
           ),
