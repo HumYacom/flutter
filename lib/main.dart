@@ -29,6 +29,18 @@ class Main2 extends StatefulWidget {
 class _Main2State extends State<Main2> {
   int Number = 0;
 
+  void inc() {
+    setState(() {
+      Number++;
+    });
+  }
+
+  void dec() {
+    setState(() {
+      Number--;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,9 +62,23 @@ class _Main2State extends State<Main2> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: dec,
+            tooltip: "-",
+            child: Icon(Icons.remove),
+          ),
+          SizedBox(
+            width: 28,
+          ),
+          FloatingActionButton(
+            onPressed: inc,
+            tooltip: "+",
+            child: Icon(Icons.add),
+          ),
+        ],
       ),
     );
   }
