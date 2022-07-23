@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'ManuFood.dart';
 
 void main() {
   runApp(Main1());
@@ -27,7 +28,7 @@ class Main2 extends StatefulWidget {
 }
 
 class _Main2State extends State<Main2> {
-  int Number = 0;
+  /*int Number = 0;
 
   void add() {
     setState(() {
@@ -39,7 +40,7 @@ class _Main2State extends State<Main2> {
     setState(() {
       Number--;
     });
-  }
+  }*/
 
   List<Widget> getData(int count) {
     List<Widget> data = [];
@@ -51,6 +52,12 @@ class _Main2State extends State<Main2> {
     }
     return data;
   }
+
+  List<manu> menu = [
+    manu("Rock", "50"),
+    manu("Endstock", "500"),
+    manu("stock", "5000")
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -66,9 +73,16 @@ class _Main2State extends State<Main2> {
           title: Text("Welcome Hee"),
         ),
         body: ListView.builder(
-            itemCount: 15,
+            itemCount: menu.length,
             itemBuilder: (BuildContext context, int index) {
-              return ListTile(title: Text("no. ${index + 1}"));
+              manu food = menu[index];
+              return ListTile(
+                title: Text(
+                  food.name,
+                  style: TextStyle(fontSize: 20, color: Colors.blue),
+                ),
+                subtitle: Text("price" + food.price + "B."),
+              );
             }));
     /*Center(
         /*child: Image(
