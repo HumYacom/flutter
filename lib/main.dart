@@ -54,9 +54,9 @@ class _Main2State extends State<Main2> {
   }
 
   List<manu> menu = [
-    manu("Rock", "50", "assets/img/p.1.jpg"),
-    manu("Endstock", "500", "assets/img/p.2.jpg"),
-    manu("stock", "5000", "assets/img/p.3.jpg")
+    manu("Rock", "50"),
+    manu("Endstock", "500"),
+    manu("stock", "5000")
   ];
 
   @override
@@ -77,12 +77,14 @@ class _Main2State extends State<Main2> {
             itemBuilder: (BuildContext context, int index) {
               manu food = menu[index];
               return ListTile(
-                leading: Image.asset(food.image),
                 title: Text(
                   food.name,
                   style: TextStyle(fontSize: 20, color: Colors.blue),
                 ),
                 subtitle: Text("price" + food.price + "B."),
+                onTap: () {
+                  print("select manu = " + food.name);
+                },
               );
             }));
     /*Center(
